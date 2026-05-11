@@ -6,7 +6,8 @@ var Viamagus_Website_Loader =  {
     _twitterLastPublishId:'',
     _ecomProductList:[],
 	_init : function(options){
-		this._sendSupportEmail();
+		// Contact forms removed (mailto-only); _sendSupportEmail bound .form-horizontal AJAX to /REST/general/customerEmail/
+		// this._sendSupportEmail();
 		this._enableLazyloadImages({siteBuilder:false});
 		this._loadBlogPosts({siteBuilder:false});  
 	    this._loadGallery();

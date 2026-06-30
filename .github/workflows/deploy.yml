@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -31,13 +31,20 @@ jobs:
             sed -i "s/<lastmod>.*<\/lastmod>/<lastmod>${ISODATE}<\/lastmod>/g" sitemap.xml
           fi
 
+      - name: Prepare site artifact
+        run: |
+          mkdir -p _site
+          for item in index.html 404.html CNAME robots.txt sitemap.xml about categories contact css imgs js privacy services terms; do
+            cp -a "$item" _site/
+          done
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment

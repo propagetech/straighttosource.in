@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d1e7f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#grad)"/>
+  <g opacity="0.3">
+    <line x1="0" y1="0" x2="400" y2="300" stroke="#2980b9" stroke-width="2"/>
+    <line x1="400" y1="0" x2="0" y2="300" stroke="#2980b9" stroke-width="2"/>
+  </g>
+  <text x="200" y="130" font-size="36" font-weight="bold" fill="#2980b9" text-anchor="middle" font-family="Arial, sans-serif">Textiles & Fabrics</text>
+  <text x="200" y="165" font-size="14" fill="#666" text-anchor="middle" font-family="Arial, sans-serif">Premium fabrics and textiles</text>
+</svg>

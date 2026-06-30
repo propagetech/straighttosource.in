@@ -10,13 +10,24 @@
    =================================== */
 
 /* ===== 1. DESIGN TOKENS ===== */
-:root {
+:root,
+[data-theme="terracotta"] {
   /* Accent — Indian terracotta, used sparingly */
   --accent: #9c4a2e;
   --accent-strong: #7e3a23;
   --accent-tint: #f0e7df;
   --accent-ring: rgba(156, 74, 46, 0.26);
+}
 
+[data-theme="teal"] {
+  /* Accent — original brand teal from the mark */
+  --accent: #2b7d9e;
+  --accent-strong: #1f6280;
+  --accent-tint: #eef5f8;
+  --accent-ring: rgba(43, 125, 158, 0.28);
+}
+
+:root {
   /* Neutrals — warm, paper-like */
   --ink: #1a1a17;        /* primary text, near-black, warm */
   --ink-soft: #57534a;   /* secondary text */
@@ -332,18 +343,19 @@ a:focus-visible {
 
 .navbar__logo:hover { opacity: 0.65; }
 
-.navbar__logo img {
-  width: auto;
-  height: 50px;
+.navbar__mark {
+  width: 34px;
+  height: 34px;
+  margin-right: 0.625rem;
+  flex-shrink: 0;
 }
 
-/* Logo image already contains the wordmark — hide redundant text */
 .navbar__brand {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
   white-space: nowrap;
 }
 
@@ -1461,7 +1473,72 @@ a.value-card:hover .value-card__more::after { transform: translateX(5px); }
 .wa-fab:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
 .wa-fab svg { width: 26px; height: 26px; }
 
-@media print { .wa-fab { display: none; } }
+/* ===== 20f. THEME PREVIEW SWITCH (client review; disable in js/theme.js) ===== */
+.theme-switcher {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 85;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.45rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-switcher__legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.theme-switcher__option {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.theme-switcher__option:hover,
+.theme-switcher__option:focus-visible {
+  color: var(--ink);
+  border-color: var(--hairline);
+  outline: none;
+}
+
+.theme-switcher__option[aria-pressed="true"] {
+  color: var(--paper);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .theme-switcher {
+    left: 12px;
+    right: 12px;
+    bottom: 84px;
+    justify-content: center;
+  }
+}
+
+@media print { .wa-fab, .theme-switcher { display: none; } }
 
 /* ===== 21. SERVICE INDEX + CATEGORY FAMILIES ===== */
 @media (min-width: 980px) {

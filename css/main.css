@@ -1463,6 +1463,46 @@ a.value-card:hover .value-card__more::after { transform: translateX(5px); }
 
 @media print { .wa-fab { display: none; } }
 
+/* ===== 21. SERVICE INDEX + CATEGORY FAMILIES ===== */
+@media (min-width: 980px) {
+  .value-grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.cat-family + .cat-family { margin-top: clamp(3.5rem, 7vw, 6rem); }
+
+.cat-family__head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 1.25rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.cat-family__head h2 {
+  text-align: left;
+  margin: 0;
+  max-width: none;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.cat-family__head .eyebrow { margin: 0 0 0 auto; }
+
+/* Standards line on the Studio page */
+.standards {
+  max-width: 24ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.standards p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.4vw, 2.7rem);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
 /* ===== 20. PRINT ===== */
 @media print {
   body { background-color: #fff; color: #000; }

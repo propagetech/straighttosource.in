@@ -1,5 +1,4 @@
-<html>
- <body>
-  User-agent: * Sitemap: http://www.straighttosource.in
- </body>
-</html>
+User-agent: *
+Allow: /
+
+Sitemap: https://straighttosource.in/sitemap.xml

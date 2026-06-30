@@ -1033,6 +1033,138 @@ a:focus-visible {
   padding: 0.4rem 0.95rem;
 }
 
+/* ===== 20c. SERVICE CARDS (clickable value cards) ===== */
+a.value-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.value-card:hover { color: inherit; }
+
+.value-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.value-card__more::after { content: '\2192'; transition: transform var(--dur) var(--ease); }
+a.value-card:hover .value-card__more { color: var(--accent); }
+a.value-card:hover .value-card__more::after { transform: translateX(4px); }
+
+/* ===== 20d. PRODUCT GALLERY (masonry columns) ===== */
+.gallery {
+  columns: 4 240px;
+  column-gap: 14px;
+}
+
+.gallery__item {
+  break-inside: avoid;
+  margin: 0 0 14px;
+  display: block;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: var(--surface-2);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.7s var(--ease);
+}
+
+.gallery__item:hover img { transform: scale(1.04); }
+
+@media (max-width: 600px) {
+  .gallery { columns: 2 140px; column-gap: 10px; }
+  .gallery__item { margin-bottom: 10px; }
+}
+
+/* Chips to browse other categories */
+.cat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.cat-chips a {
+  font-size: 0.86rem;
+  font-weight: 550;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+}
+
+.cat-chips a:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
+.cat-chips a[aria-current="page"] { color: #fff; background: var(--ink); border-color: var(--ink); }
+
+/* ===== 20e. CONTACT DETAILS + MAP ===== */
+.contact-details {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+}
+
+.contact-details li {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+}
+
+.contact-details strong { display: block; color: var(--ink); margin-bottom: 0.4rem; font-size: 1rem; }
+.contact-details span, .contact-details a { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
+.contact-details a { color: var(--accent); font-weight: 550; }
+
+.map-embed {
+  border: 1px solid var(--hairline);
+  width: 100%;
+  height: 420px;
+  border-radius: var(--radius-lg);
+  display: block;
+  margin-top: 3rem;
+}
+
+/* ===== 20f. PROSE LISTS ===== */
+.prose ul { margin: 0 0 1.25rem 1.2rem; padding: 0; }
+.prose li { margin-bottom: 0.6rem; }
+
+/* ===== 20g. WHATSAPP FLOATING BUTTON ===== */
+.wa-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 80;
+  transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.wa-fab:hover { background: #1ebe5b; color: #fff; transform: translateY(-2px); }
+.wa-fab svg { width: 30px; height: 30px; }
+
+@media print { .wa-fab { display: none; } }
+
 /* ===== 20. PRINT ===== */
 @media print {
   body { background-color: #fff; color: #000; }

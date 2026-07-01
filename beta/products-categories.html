@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories — Straight to Source</title>
+    <meta name="description" content="Furniture, Accessories, Gifts, Textiles, Soft Goods, Equestrian and Lighting — sourced, inspected and shipped from India's craft clusters for global wholesalers and retailers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1B2A41;
+            --paper: #EDE6D6;
+            --paper-light: #F7F3E9;
+            --cargo: #2b7d9e;
+            --steel: #5B6B79;
+            --approved: #3F6B4F;
+            --line: rgba(27, 42, 65, 0.18);
+            --font-display: 'Fraunces', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--font-body);
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(27, 42, 65, 0.035) 1px, transparent 1px);
+            background-size: 3px 3px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .brand .mark { display: none; }
+
+        nav.links {
+            display: flex;
+            gap: 32px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        nav.links a {
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 3px;
+            transition: border-color .2s;
+        }
+
+        nav.links a:hover,
+        nav.links a.active {
+            border-color: var(--cargo);
+            color: var(--cargo);
+        }
+
+        .nav-cta {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            border: 1px solid var(--ink);
+            padding: 9px 16px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background .2s, color .2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--ink);
+            color: var(--paper-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--ink);
+            padding: 8px 10px;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+            margin-bottom: 54px;
+            border-bottom: 1.5px solid var(--ink);
+            padding-bottom: 22px;
+        }
+
+        .section-head h2 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--steel);
+            max-width: 32ch;
+            text-align: right;
+        }
+
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--cargo);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 26px;
+            height: 1px;
+            background: var(--cargo);
+        }
+
+        .btn-primary {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            background: var(--ink);
+            color: var(--paper-light);
+            padding: 15px 26px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cargo);
+        }
+
+        .btn-ghost {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1.5px solid var(--ink);
+            padding-bottom: 3px;
+        }
+
+        .btn-light {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            background: var(--paper-light);
+            color: var(--ink);
+            padding: 15px 24px;
+            text-decoration: none;
+        }
+
+        .btn-outline-light {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--paper-light);
+            border: 1px solid var(--paper-light);
+            padding: 15px 24px;
+            text-decoration: none;
+        }
+
+        .page-hero {
+            padding: 72px 0 0;
+        }
+
+        .page-hero-inner {
+            border: 1.5px solid var(--ink);
+            background: var(--paper-light);
+        }
+
+        .page-hero-body {
+            padding: 52px 50px 48px;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            line-height: 1.04;
+            margin: 0 0 20px;
+            letter-spacing: -0.01em;
+            max-width: 20ch;
+        }
+
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--cargo);
+            font-weight: 500;
+        }
+
+        .page-hero p.lead {
+            font-size: 19px;
+            color: var(--steel);
+            max-width: 58ch;
+            margin: 0 0 40px;
+            line-height: 1.65;
+        }
+
+        .cat-jump {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            border: 1.5px solid var(--ink);
+        }
+
+        .cat-jump a {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-right: 1px solid var(--line);
+            color: var(--steel);
+            transition: background .2s, color .2s;
+            white-space: nowrap;
+        }
+
+        .cat-jump a:last-child {
+            border-right: none;
+        }
+
+        .cat-jump a:hover {
+            background: var(--ink);
+            color: var(--paper-light);
+        }
+
+        .marquee-wrap {
+            overflow: hidden;
+            border-top: 1.5px solid var(--ink);
+            border-bottom: 1.5px solid var(--ink);
+            padding: 18px 0;
+            background: var(--paper-light);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 40px;
+            white-space: nowrap;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            animation: scroll 28s linear infinite;
+        }
+
+        .marquee-track span {
+            color: var(--steel);
+        }
+
+        .marquee-track span.sep {
+            color: var(--cargo);
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .marquee-track {
+                animation: none;
+            }
+        }
+
+        .cat-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1.5px solid var(--ink);
+            margin-bottom: 2px;
+            scroll-margin-top: 90px;
+        }
+
+        .cat-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .cat-block.reverse .cat-left {
+            order: 2;
+        }
+
+        .cat-block.reverse .cat-right {
+            order: 1;
+        }
+
+        .cat-left {
+            padding: 56px 52px;
+            border-right: 1.5px solid var(--ink);
+        }
+
+        .cat-block.reverse .cat-left {
+            border-right: none;
+            border-left: 1.5px solid var(--ink);
+        }
+
+        .cat-right {
+            padding: 56px 52px;
+            background: var(--paper-light);
+        }
+
+        .cat-index {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--cargo);
+            margin-bottom: 16px;
+            letter-spacing: .06em;
+        }
+
+        .cat-left h2 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(2rem, 3.2vw, 2.8rem);
+            margin: 0 0 20px;
+            letter-spacing: -0.01em;
+            line-height: 1.05;
+        }
+
+        .cat-left p {
+            font-size: 16px;
+            color: var(--steel);
+            line-height: 1.75;
+            margin: 0 0 18px;
+        }
+
+        .cat-left p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .cat-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .cat-right h3 {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--steel);
+            margin: 0 0 20px;
+        }
+
+        .product-list {
+            list-style: none;
+            margin: 0 0 30px;
+            padding: 0;
+        }
+
+        .product-list li {
+            font-size: 15px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-list li:last-child {
+            border-bottom: none;
+        }
+
+        .product-list li .arr {
+            color: var(--line);
+            font-family: var(--font-mono);
+            font-size: 13px;
+        }
+
+        .cluster-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .cluster-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--steel);
+            white-space: nowrap;
+        }
+
+        .cluster-val {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--ink);
+        }
+
+        .material-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 18px;
+        }
+
+        .mtag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            border: 1px solid var(--line);
+            padding: 4px 10px;
+            color: var(--ink);
+        }
+
+        .brief-panel {
+            border: 1.5px solid var(--ink);
+            background: var(--paper-light);
+            padding: 40px 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .brief-panel p {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--steel);
+            margin: 0;
+            max-width: 52ch;
+            line-height: 1.7;
+        }
+
+        .brief-panel p strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1.5px solid var(--ink);
+        }
+
+        .step-card {
+            background: var(--paper-light);
+            padding: 34px 28px;
+        }
+
+        .step-num {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--cargo);
+            margin-bottom: 16px;
+            letter-spacing: .06em;
+        }
+
+        .step-card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            margin: 0 0 12px;
+            font-weight: 600;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: var(--steel);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .cta-block {
+            border: 1.5px solid var(--ink);
+            background: var(--ink);
+            color: var(--paper-light);
+            padding: 60px 50px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+        }
+
+        .cta-block h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            margin: 0 0 16px;
+            font-weight: 600;
+        }
+
+        .cta-block p {
+            color: #C7CFD8;
+            font-size: 16px;
+            max-width: 48ch;
+            margin: 0 0 30px;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .cta-meta {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 2;
+            color: #C7CFD8;
+            border-left: 1px solid rgba(255, 255, 255, .2);
+            padding-left: 40px;
+        }
+
+        .cta-meta .row-label {
+            color: #8B97A4;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: .08em;
+            display: block;
+            margin-top: 18px;
+        }
+
+        .cta-meta .row-label:first-child {
+            margin-top: 0;
+        }
+
+        .cta-meta a {
+            text-decoration: none;
+            color: var(--paper-light);
+            border-bottom: 1px solid rgba(255, 255, 255, .3);
+        }
+
+        footer {
+            padding: 30px 0 50px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--steel);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        @media(max-width:900px) {
+            nav.links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .page-hero-body {
+                padding: 36px 22px 28px;
+            }
+
+            .cat-jump a {
+                font-size: 11px;
+                padding: 10px 12px;
+            }
+
+            .cat-block {
+                grid-template-columns: 1fr;
+            }
+
+            .cat-block.reverse .cat-left,
+            .cat-block.reverse .cat-right {
+                order: unset;
+            }
+
+            .cat-left {
+                border-right: none !important;
+                border-left: none !important;
+                border-bottom: 1.5px solid var(--ink);
+                padding: 36px 22px;
+            }
+
+            .cat-right {
+                padding: 36px 22px;
+            }
+
+            .brief-panel {
+                padding: 28px 22px;
+            }
+
+            .step-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-block {
+                grid-template-columns: 1fr;
+                padding: 40px 26px;
+            }
+
+            .cta-meta {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid rgba(255, 255, 255, .2);
+                padding-top: 24px;
+            }
+
+            .section-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-tag {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="wrap navbar">
+            <a class="brand" href="index.html">
+                <img src="/imgs/logo-horizontal.webp" alt="Straight to Source" height="40" style="display:block;">
+            </a>
+            <nav class="links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="products-categories.html" class="active">Categories</a>
+                <a href="about-us.html">About Us</a>
+                <a href="why-india.html">Why India</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <a class="nav-cta" href="index.html#contact">Get a Quote</a>
+            <button class="menu-toggle">Menu</button>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="wrap page-hero">
+            <div class="page-hero-inner">
+                <div class="page-hero-body">
+                    <div class="eyebrow">Product categories</div>
+                    <h1>India makes it. We source it, inspect it and <em>ship it.</em></h1>
+                    <p class="lead">Seven categories spanning furniture, textiles, lighting, gifts, accessories, soft goods and equestrian — each sourced from the Indian cluster where the craft tradition runs deepest.
+                        Every product we source goes through quality inspection before it leaves the country.</p>
+                    <div class="cat-jump">
+                        <a href="#furniture">Furniture</a>
+                        <a href="#accessories">Accessories</a>
+                        <a href="#gifts">Gifts</a>
+                        <a href="#textiles">Textiles</a>
+                        <a href="#soft-goods">Soft Goods</a>
+                        <a href="#equestrian">Equestrian</a>
+                        <a href="#lighting">Lighting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="marquee-wrap">
+            <div class="marquee-track" id="marquee"></div>
+        </div>
+
+        <div class="wrap" style="padding-top:60px;padding-bottom:0;">
+
+            <!-- 01 FURNITURE -->
+            <div class="cat-block" id="furniture">
+                <div class="cat-left">
+                    <div class="cat-index">Category 01</div>
+                    <h2>Furniture</h2>
+                    <p>India is one of the world's most significant furniture exporters, with Jodhpur and Saharanpur accounting for the majority of handcrafted wood and iron pieces going to European and North American
+                        wholesale buyers.</p>
+                    <p>We source across the full range — solid wood dining and bedroom furniture, accent and occasional pieces, iron and reclaimed wood combinations, painted and distressed finishes — working with
+                        factories that have consistent export track records and the QC infrastructure to hold your standard across a full production run.</p>
+                    <div class="cat-actions">
+                        <a class="btn-primary" href="index.html#contact">Send a furniture brief →</a>
+                        <a class="btn-ghost" href="why-india.html">About the clusters</a>
+                    </div>
+                </div>
+                <div class="cat-right">
+                    <h3>Products we source</h3>
+                    <ul class="product-list">
+                        <li>Solid mango &amp; sheesham dining tables <span class="arr">—</span></li>
+                        <li>Bedroom furniture — beds, wardrobes, side tables <span class="arr">—</span></li>
+                        <li>Accent &amp; occasional chairs <span class="arr">—</span></li>
+                        <li>Storage — cabinets, sideboards, trunks <span class="arr">—</span></li>
+                        <li>Iron &amp; reclaimed wood combinations <span class="arr">—</span></li>
+                        <li>Hand-painted &amp; distressed finishes <span class="arr">—</span></li>
+                        <li>Outdoor &amp; garden furniture <span class="arr">—</span></li>
+                        <li>Contract &amp; hospitality pieces <span class="arr">—</span></li>
+                    </ul>
+                    <div class="cluster-row"><span class="cluster-label">Primary clusters</span><span class="cluster-val">Jodhpur · Saharanpur · Jaipur</span></div>
+                    <div class="cluster-row"><span class="cluster-label">Materials</span><span class="cluster-val">Mango · Sheesham · Teak · Acacia · Iron</span></div>
+                    <div class="material-tags">
+                        <span class="mtag">Solid Wood</span><span class="mtag">Iron</span><span class="mtag">Reclaimed</span>
+                        <span class="mtag">Hand-painted</span><span class="mtag">Distressed</span><span class="mtag">FCL / LCL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 02 ACCESSORIES -->
+            <div class="cat-block reverse" id="accessories">
+                <div class="cat-left">
+                    <div class="cat-index">Category 02</div>
+                    <h2>Accessories</h2>
+                    <p>India's metalware and home accessories sector — centred on Moradabad and Delhi — has been supplying European and American importers for over a century. The craft base is deep, the vendor range is
+                        wide, and the product diversity is exceptional.</p>
+                    <p>We source decorative home accessories, tabletop objects, candle holders, frames, trays and decorative bowls across brass, iron, aluminium, zinc alloy and mixed-media finishes — from natural
+                        oxidised metal to electroplated gold and silver. Minimum quantities are flexible and suited to wholesale buyers at all scales.</p>
+                    <div class="cat-actions">
+                        <a class="btn-primary" href="index.html#contact">Send an accessories brief →</a>
+                    </div>
+                </div>
+                <div class="cat-right">
+                    <h3>Products we source</h3>
+                    <ul class="product-list">
+                        <li>Decorative bowls, trays &amp; platters <span class="arr">—</span></li>
+                        <li>Candle holders &amp; lanterns <span class="arr">—</span></li>
+                        <li>Picture frames &amp; mirrors <span class="arr">—</span></li>
+                        <li>Vases &amp; planters <span class="arr">—</span></li>
+                        <li>Bookends, sculptures &amp; objets <span class="arr">—</span></li>
+                        <li>Tabletop &amp; kitchen accessories <span class="arr">—</span></li>
+                        <li>Wall décor &amp; hangings <span class="arr">—</span></li>
+                        <li>Storage baskets &amp; organisers <span class="arr">—</span></li>
+                    </ul>
+                    <div class="cluster-row"><span class="cluster-label">Primary clusters</span><span class="cluster-val">Moradabad · Delhi · Jaipur</span></div>
+                    <div class="cluster-row"><span class="cluster-label">Materials</span><span class="cluster-val">Brass · Iron · Aluminium · Zinc · Mixed media</span></div>
+                    <div class="material-tags">
+                        <span class="mtag">Brass</span><span class="mtag">Iron</span><span class="mtag">Aluminium</span>
+                        <span class="mtag">Electroplated</span><span class="mtag">Oxidised</span><span class="mtag">Mixed Media</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 GIFTS -->
+            <div class="cat-block" id="gifts">
+                <div class="cat-left">
+                    <div class="cat-index">Category 03</div>
+                    <h2>Gifts</h2>
+                    <p>India is a natural source for giftable product — handcrafted, origin-rich and suited to the mid-to-premium gift retail market in Europe and North America. Jaipur and Delhi produce a vast range of
+                        giftable home objects, from incense and wellness gifts to hand-painted ceramics and artisan textile sets.</p>
+                    <p>We work with vendors experienced in gift-ready packaging, sets and assortments, and seasonal collections — appropriate for buyers building range plans for Christmas, Mother's Day and gifting
+                        occasions throughout the year. Compliance with destination-market packaging and labelling regulations is managed as part of every order.</p>
+                    <div class="cat-actions">
+                        <a class="btn-primary" href="index.html#contact">Send a gifts brief →</a>
+                    </div>
+                </div>
+                <div class="cat-right">
+                    <h3>Products we source</h3>
+                    <ul class="product-list">
+                        <li>Gift sets &amp; curated assortments <span class="arr">—</span></li>
+                        <li>Candles &amp; fragrance gifts <span class="arr">—</span></li>
+                        <li>Ceramic &amp; stoneware gift pieces <span class="arr">—</span></li>
+                        <li>Artisan textile gift sets <span class="arr">—</span></li>
+                        <li>Wellness &amp; self-care gifts <span class="arr">—</span></li>
+                        <li>Seasonal &amp; festive collections <span class="arr">—</span></li>
+                        <li>Desk &amp; stationery accessories <span class="arr">—</span></li>
+                        <li>Packaging-ready gift boxes <span class="arr">—</span></li>
+                    </ul>
+                    <div class="cluster-row"><span class="cluster-label">Primary clusters</span><span class="cluster-val">Jaipur · Delhi · Moradabad</span></div>
+                    <div class="cluster-row"><span class="cluster-label">Finishes</span><span class="cluster-val">Hand-painted · Block print · Artisan</span></div>
+                    <div class="material-tags">
+                        <span class="mtag">Ceramic</span><span class="mtag">Textile</span><span class="mtag">Wood</span>
+                        <span class="mtag">Metal</span><span class="mtag">Gift-boxed</span><span class="mtag">Seasonal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04 TEXTILES -->
+            <div class="cat-block reverse" id="textiles">
+                <div class="cat-left">
+                    <div class="cat-index">Category 04</div>
+                    <h2>Textiles</h2>
+                    <p>India's textile tradition is among the oldest and most technically varied in the world. From Rajasthan's block-printed cottons to Tamil Nadu's woven linens and Kanpur's dyed fabrications, the range
+                        available to wholesale buyers is unmatched by any other single-country sourcing destination.</p>
+                    <p>We source bed linen, table linen, throws, kitchen textiles and fabric by the metre — across 100% cotton, linen blends, stonewashed, embroidered and printed constructions. All textiles are checked
+                        for colour fastness, dimensional stability and shrinkage before dispatch.</p>
+                    <div class="cat-actions">
+                        <a class="btn-primary" href="index.html#contact">Send a textiles brief →</a>
+                    </div>
+                </div>
+                <div class="cat-right">
+                    <h3>Products we source</h3>
+                    <ul class="product-list">
+                        <li>Bed linen — duvet covers, pillowcases, sheets <span class="arr">—</span></li>
+                        <li>Throws &amp; blankets <span class="arr">—</span></li>
+                        <li>Table linen — runners, placemats, napkins <span class="arr">—</span></li>
+                        <li>Kitchen &amp; tea towels <span class="arr">—</span></li>
+                        <li>Block-printed cotton fabric <span class="arr">—</span></li>
+                        <li>Embroidered textile pieces <span class="arr">—</span></li>
+                        <li>Stonewashed &amp; enzyme-washed linens <span class="arr">—</span></li>
+                        <li>Fabric by the metre <span class="arr">—</span></li>
+                    </ul>
+                    <div class="cluster-row"><span class="cluster-label">Primary clusters</span><span class="cluster-val">Jaipur · Kanpur · Tuticorin</span></div>
+                    <div class="cluster-row"><span class="cluster-label">Fibres</span><span class="cluster-val">Cotton · Linen · Cotton-linen · Muslin</span></div>
+                    <div class="material-tags">
+                        <span class="mtag">Block Print</span><span class="mtag">Stonewashed</span><span class="mtag">Embroidered</span>
+                        <span class="mtag">OEKO-TEX</span><span class="mtag">Cotton</span><span class="mtag">Linen Blend</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 05 SOFT GOODS -->
+            <div class="cat-block" id="soft-goods">
+                <div class="cat-left">
+                    <div class="cat-index">Category 05</div>
+                    <h2>Soft Goods</h2>
+                    <p>Cushions, poufs, floor cushions and upholstered storage are among India's strongest wholesale export categories — combining craft textile production with competitive sewing and finishing labour.
+                        Jaipur and Kanpur are the primary production centres, with Tuticorin handling woven outer fabrics.</p>
+                    <p>We source filled and unfilled constructions to your specification — cover fabric, fill material, zipper type, label, packaging and carton configuration all managed as part of the brief. Inner
+                        fillings can be specified as hollow fibre, wool, cotton or kapok depending on your market requirements.</p>
+                    <div class="cat-actions">
+                        <a class="btn-primary" href="index.html#contact">Send a soft goods brief →</a>
+                    </div>
+                </div>
+                <div class="cat-right">
+                    <h3>Products we source</h3>
+                    <ul class="product-list">
+                        <li>Cushion covers &amp; filled cushions <span class="arr">—</span></li>
+                        <li>Floor cushions &amp; meditation poufs <span class="arr">—</span></li>
+                        <li>Ottoman poufs — round, square, storage <span class="arr">—</span></li>
+                        <li>Bolsters &amp; neck rolls <span class="arr">—</span></li>
+                        <li>Bean bags &amp; seating poufs <span class="arr">—</span></li>
+                        <li>Upholstered storage boxes <span class="arr">—</span></li>
+                        <li>Pet beds &amp; cushions <span class="arr">—</span></li>
+                        <li>Outdoor cushions &amp; covers <span class="arr">—</span></li>
+                    </ul>
+                    <div class="cluster-row"><span class="cluster-label">Primary clusters</span><span class="cluster-val">Jaipur · Kanpur · Tuticorin</span></div>
+                    <div class="cluster-row"><span class="cluster-label">Fabrics</span><span class="cluster-val">Cotton · Canvas · Velvet · Dhurrie · Wool</span></div>
+                    <div class="material-tags">
+                        <span class="mtag">Filled</span><span class="mtag">Unfilled</span><span class="mtag">Block Print</span>
+                        <span class="mtag">Embroidered</span><span class="mtag">Velvet</span><span class="mtag">Indoor/Outdoor</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 06 EQUESTRIAN -->
+            <div class="cat-block reverse" id="equestrian">
+                <div class="cat-left">
+                    <div class="cat-index">Category 06</div>
+                    <h2>Equestrian</h2>
+                    <p>Kanpur has been India's leather capital for over a hundred years, home to a tannery and finished goods manufacturing base that supplies equestrian and saddlery markets worldwide. The leather
+                        quality, at the price point that Kanpur delivers, is difficult to match anywhere else.</p>
+                    <p>We source saddlery, riding accessories and stable equipment from established Kanpur manufacturers with direct export experience to EU and UK equestrian buyers. All leather goods are checked for
+                        stitching integrity, hardware quality and finish consistency. REACH compliance is managed as standard for EU-bound goods.</p>
+                    <div class="cat-actions">
+                        <a class="btn-primary" href="index.html#contact">Send an equestrian brief →</a>
+                    </div>
+                </div>
+                <div class="cat-right">
+                    <h3>Products we source</h3>
+                    <ul class="product-list">
+                        <li>Saddles — English, Western, endurance <span class="arr">—</span></li>
+                        <li>Bridles, headcollars &amp; halters <span class="arr">—</span></li>
+                        <li>Reins, girths &amp; stirrup leathers <span class="arr">—</span></li>
+                        <li>Riding boots &amp; footwear <span class="arr">—</span></li>
+                        <li>Grooming kits &amp; stable accessories <span class="arr">—</span></li>
+                        <li>Leather care &amp; maintenance products <span class="arr">—</span></li>
+                        <li>Horse rugs &amp; stable blankets <span class="arr">—</span></li>
+                        <li>Equestrian gifts &amp; accessories <span class="arr">—</span></li>
+                    </ul>
+                    <div class="cluster-row"><span class="cluster-label">Primary cluster</span><span class="cluster-val">Kanpur</span></div>
+                    <div class="cluster-row"><span class="cluster-label">Leathers</span><span class="cluster-val">Full grain · Buffalo · Genuine · Synthetic</span></div>
+                    <div class="material-tags">
+                        <span class="mtag">Full Grain</span><span class="mtag">Buffalo Leather</span><span class="mtag">REACH Compliant</span>
+                        <span class="mtag">Hand-stitched</span><span class="mtag">Brass Hardware</span><span class="mtag">Export Ready</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 07 LIGHTING -->
+            <div class="cat-block" id="lighting">
+                <div class="cat-left">
+                    <div class="cat-index">Category 07</div>
+                    <h2>Lighting</h2>
+                    <p>Moradabad and Saharanpur produce a wide range of decorative lighting — from iron and brass pendant fixtures to carved wooden table lamps and woven rattan shades — that has found a consistent market
+                        with European interior retailers and home décor wholesalers for decades.</p>
+                    <p>We source pendant lights, table lamps, floor lamps, wall sconces and decorative lanterns across metal, wood, rattan and glass constructions. Electrical components can be specified for EU (CE), UK
+                        or US (UL) standards. We coordinate electrical compliance testing and certification for all wired fittings as part of the order process.</p>
+                    <div class="cat-actions">
+                        <a class="btn-primary" href="index.html#contact">Send a lighting brief →</a>
+                    </div>
+                </div>
+                <div class="cat-right">
+                    <h3>Products we source</h3>
+                    <ul class="product-list">
+                        <li>Pendant &amp; hanging lights <span class="arr">—</span></li>
+                        <li>Table lamps — metal, wood, ceramic base <span class="arr">—</span></li>
+                        <li>Floor lamps &amp; arc lamps <span class="arr">—</span></li>
+                        <li>Wall sconces &amp; bracket lights <span class="arr">—</span></li>
+                        <li>Decorative lanterns — indoor &amp; outdoor <span class="arr">—</span></li>
+                        <li>Rattan &amp; woven shades <span class="arr">—</span></li>
+                        <li>Carved wood lamp bases <span class="arr">—</span></li>
+                        <li>Candle lanterns &amp; hurricane lamps <span class="arr">—</span></li>
+                    </ul>
+                    <div class="cluster-row"><span class="cluster-label">Primary clusters</span><span class="cluster-val">Moradabad · Saharanpur</span></div>
+                    <div class="cluster-row"><span class="cluster-label">Materials</span><span class="cluster-val">Iron · Brass · Wood · Rattan · Glass</span></div>
+                    <div class="material-tags">
+                        <span class="mtag">CE Certified</span><span class="mtag">UK Plug</span><span class="mtag">US/UL</span>
+                        <span class="mtag">Iron</span><span class="mtag">Rattan</span><span class="mtag">Hand-finished</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NOT LISTED PANEL -->
+        <div class="wrap" style="padding-top:60px;padding-bottom:0;">
+            <div class="brief-panel">
+                <p><strong>Don't see your product?</strong> We source beyond these seven categories — ceramics, cane, bamboo, stonework, paper goods and more. If it's made in India and you need it inspected and shipped,
+                    send us a brief.</p>
+                <a class="btn-primary" href="index.html#contact">Send any brief →</a>
+            </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <section>
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>What happens when you send a brief</h2>
+                    <div class="section-tag">Our process</div>
+                </div>
+                <div class="step-grid">
+                    <div class="step-card">
+                        <div class="step-num">Step 01</div>
+                        <h3>You brief us</h3>
+                        <p>Product, target price, quantity and timeline. Email or WhatsApp — we work in whichever format suits your team.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">Step 02</div>
+                        <h3>We match vendors</h3>
+                        <p>Shortlist from our verified network in the relevant cluster. Factory visits and capability checks before we quote.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">Step 03</div>
+                        <h3>Samples &amp; approval</h3>
+                        <p>Samples developed to your spec, tracked and shipped to you. Revisions managed until you sign off the production standard.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">Step 04</div>
+                        <h3>Production &amp; ship</h3>
+                        <p>Order placed, production tracked, QC inspected, packed and shipped — with all export documentation prepared and reviewed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section style="padding-top:0;">
+            <div class="wrap">
+                <div class="cta-block">
+                    <div>
+                        <h2>Tell us what you need sourced from India.</h2>
+                        <p>A product brief is all it takes — category, target price, quantity and timeline. We come back with vendor options within days.</p>
+                        <div class="cta-actions">
+                            <a class="btn-light" href="index.html#contact">Start a sourcing brief</a>
+                            <a class="btn-outline-light" href="services.html">See our services</a>
+                        </div>
+                    </div>
+                    <div class="cta-meta">
+                        <span class="row-label">Email</span>
+                        <a href="mailto:ananya@straighttosource.in">ananya@straighttosource.in</a>
+                        <span class="row-label">WhatsApp</span>
+                        <a href="https://wa.me/919650092918">+91 96500 92918</a>
+                        <span class="row-label">Head office</span>
+                        C-29, Sector 12<br>NOIDA, UP – 201301, India
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-inner">
+                <span>© 2026 Straight to Source. All rights reserved.</span>
+                <span>New Delhi, India · <a href="index.html" style="text-decoration:none;border-bottom:1px solid var(--line);">Home</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const cats = ["Furniture", "Accessories", "Gifts", "Textiles", "Soft Goods", "Equestrian", "Lighting"];
+        const marquee = document.getElementById('marquee');
+        const content = cats.map(c => `<span>${c}</span><span class="sep"> // </span>`).join('');
+        marquee.innerHTML = content + content;
+    </script>
+
+</body>
+
+</html>

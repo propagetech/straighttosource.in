@@ -34,7 +34,7 @@ jobs:
       - name: Prepare site artifact
         run: |
           mkdir -p _site
-          for item in index.html 404.html CNAME robots.txt sitemap.xml about categories contact css imgs js privacy services terms; do
+          for item in index.html 404.html CNAME robots.txt sitemap.xml about categories contact css imgs js privacy services terms beta; do
             cp -a "$item" _site/
           done
 

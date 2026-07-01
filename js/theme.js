@@ -9,8 +9,8 @@
 (function () {
   'use strict';
 
-  var PRODUCTION_THEME = 'terracotta';
-  var ENABLE_THEME_SWITCHER = true;
+  var PRODUCTION_THEME = 'teal';
+  var ENABLE_THEME_SWITCHER = false;
   var STORAGE_KEY = 'sts-theme';
 
   var THEMES = {

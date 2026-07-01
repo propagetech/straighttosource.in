@@ -17,7 +17,7 @@
             --ink: #1B2A41;
             --paper: #EDE6D6;
             --paper-light: #F7F3E9;
-            --cargo: #C9542F;
+            --cargo: #2b7d9e;
             --steel: #5B6B79;
             --approved: #3F6B4F;
             --line: rgba(27, 42, 65, 0.18);
@@ -90,19 +90,7 @@
             text-decoration: none;
         }
 
-        .brand .mark {
-            width: 34px;
-            height: 34px;
-            border: 2px solid var(--ink);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 15px;
-            font-weight: 700;
-            transform: rotate(-6deg);
-        }
+        .brand .mark { display: none; }
 
         nav.links {
             display: flex;
@@ -731,8 +719,7 @@
     <header>
         <div class="wrap navbar">
             <a class="brand" href="index.html">
-                <span class="mark">S</span>
-                STRAIGHT&nbsp;TO&nbsp;SOURCE
+                <img src="/imgs/logo-horizontal.webp" alt="Straight to Source" height="40" style="display:block;">
             </a>
             <nav class="links">
                 <a href="about.html">About</a>
